@@ -420,11 +420,7 @@ else {
                 }
             });
         }
-        function loopRadar() {
-            const radar = document.getElementById('radar-cone-svg');
-            if(radar && viewer) { const s = d.scenes.find(x => x.id === activeId); if(s) radar.style.transform = `rotate(${viewer.getYaw() - (s.northOffset || 0)}deg)`; }
-            requestAnimationFrame(loopRadar);
-        }
+      
 window.addEventListener('resize', () => {
     const newMobile = window.innerWidth <= 768;
 
