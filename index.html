@@ -391,7 +391,7 @@ else {
             if(d.scenes.length >= 2) document.getElementById('btn-thumbnails').classList.remove('hidden');
             
             viewer.on('scenechange', (newSceneId) => { activeId = newSceneId; renderMarkers(); updateTitle(); if(isThumbnailsOpen) renderThumbnailsBar(); });
-            updateTitle(); 
+            updateTitle(); requestAnimationFrame(loopRadar); 
         }
 
         function loadScene(id) {
@@ -419,7 +419,7 @@ else {
                     dot.className = 'marker ' + (isAct ? 'marker-active' : 'marker-inactive');
                     dot.style.left = s.marker.x + '%'; dot.style.top = s.marker.y + '%';
                     dot.title = s.name; dot.onclick = () => loadScene(s.id); 
-                    if(isAct) dot.innerHTML = `<div id="radar-cone-svg" class="radar-cone"></div>`; l.appendChild(dot);
+                    l.appendChild(dot);
                 }
             });
         }
